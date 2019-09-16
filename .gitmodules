@@ -1,0 +1,3 @@
+[submodule "k-vim"]
+	path = k-vim
+	url = git@github.com:RanchoCooper/k-vim.git

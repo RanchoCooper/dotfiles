@@ -1,0 +1,48 @@
+[user]
+    name = Rancho
+    email = ranchocooper@gmail.com
+    signingkey = 4CE33B17A0477FEC
+[core]
+    autocrlf = input
+    safecrlf = false
+    editor = vim
+	quotepath = false
+    pager = diff-so-fancy | less --tabs=4 -RFX
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%b %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    type = cat-file
+    dump = cat-file
+    soup = push origin --all
+    sm = submodule
+    bl = blame
+    rel = rev-list --all --pretty=format:\"%ad | %s%d [%an]\" --date=short
+[color]
+    ui = true
+    always = true
+[color "diff"]
+    meta = yellow
+    grag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = white bold
+    whitespace = red reverse
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = white bold
+    newHighlight = white bold 22
+[merge]
+    tool = idea
+[mergetool "idea"]
+    cmd = idea merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+    trustExitCode = true
+[diff]
+   tool = idea
+[difftool "idea"]
+    cmd = idea diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+[gpg]
+	  program = gpg
