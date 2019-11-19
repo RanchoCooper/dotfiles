@@ -8,8 +8,8 @@ export ZSH=/Users/rancho/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-# ZSH_THEME="agnoster"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="agnoster"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_TMUX_AUTOSTART='true'
 
 # POWERLEVEL9K_MODE='awesome-patched'
@@ -142,12 +142,15 @@ bindkey ',' autosuggest-accept
 
 alias cpignore='cp ~/code/my-gitignore/gitignore .gitignore'
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv init -)"
+# eval "$(pyenv virtualenv-init -)"
 
 
 ### customer-made ended
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # eval $(thefuck --alias)
 
-. ~/.zshrc.eleme
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+alias k="kubectl --insecure-skip-tls-verify --namespace=backend"
+alias kctx="kubectl config use-context"
