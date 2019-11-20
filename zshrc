@@ -150,7 +150,8 @@ alias cpignore='cp ~/code/my-gitignore/gitignore .gitignore'
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # eval $(thefuck --alias)
 
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
+export PATH="$PATH:/usr/local/bin/go"
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 alias k="kubectl --insecure-skip-tls-verify --namespace=backend"
 alias kctx="kubectl config use-context"

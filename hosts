@@ -1,0 +1,19 @@
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+
+0.0.0.0 account.jetbrains.com
+
+# GitHub
+
+192.30.253.112 http://github.com
+
+151.101.184.133 http://assets-cdn.github.com
+
+151.101.185.194 http://github.global.ssl.fastly.net
