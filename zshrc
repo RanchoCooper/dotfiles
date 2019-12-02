@@ -153,5 +153,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
 export PATH="$PATH:/usr/local/bin/go"
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-alias k="kubectl --insecure-skip-tls-verify --namespace=backend"
-alias kctx="kubectl config use-context"
+
+source ~/.lls.zshrc
