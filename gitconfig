@@ -50,3 +50,5 @@
 	insteadOf = https://git.llsapp.com
 [branch]
 	sort = -committerdate
+[pull]
+	rebase = true
