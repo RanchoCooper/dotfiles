@@ -107,9 +107,8 @@ export TERM=xterm-256color
 
 
 
-### custom-made
+#### personal configs ####
 
-## aliases
 alias l.='ls -lh .*'
 alias cl="printf '\33c\e[3J'"
 alias zrc="vim ~/.zshrc"
@@ -117,6 +116,7 @@ alias vrc="vim ~/.vimrc"
 alias vrcb="vim ~/.vimrc.bundles"
 alias renv=". ~/.zshrc"        # reload env
 alias clds="sudo find . -name ".DS_Store" -depth -exec rm {} \;"
+alias brewup="brew update && brew upgrade"
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
 --disturl=https://npm.taobao.org/dist \
@@ -125,9 +125,10 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 alias tmuxx="tmux new-session -A -s Basic"
 alias ohmyzsh="~/.oh-my-zsh"
 alias vpylib="vim ~/repo/cpython/Lib"
-alias brewup="brew update && brew upgrade"
+alias cpignore='cp ~/code/my-gitignore/gitignore .gitignore'
+alias god="go mod download"
 
-## enviroment vars
+# enviroment vars
 export GPG_TTY=$(tty)
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -138,20 +139,25 @@ export HOMEBREW_GITHUB_API_TOKEN="b62a7ad6169ef5814bf3e93b987926779e492aa9"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home"
 export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
+export PATH="$PATH:/usr/local/bin/go"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH:$GOPATH/bin"
+export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export GOOS="darwin"
+export GOARCH="amd64"
+
 bindkey ',' autosuggest-accept
 
-alias cpignore='cp ~/code/my-gitignore/gitignore .gitignore'
 
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
+#### personal config ended ####
 
-### customer-made ended
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # eval $(thefuck --alias)
 
-export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
-export PATH="$PATH:/usr/local/bin/go"
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
+# Laix setting import
 source ~/.lls.zshrc
