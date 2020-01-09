@@ -125,8 +125,11 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 alias tmuxx="tmux new-session -A -s Basic"
 alias ohmyzsh="~/.oh-my-zsh"
 alias vpylib="vim ~/repo/cpython/Lib"
-alias cpignore='cp ~/code/my-gitignore/gitignore .gitignore'
+alias cpignore='cp ~/dotfiles/gitignore .gitignore'
+alias cpgo-precommit="cp ~/dotfiles/pre-commit.go"
+alias cppy-precommit="cp ~/dotfiles/pre-commit.py"
 alias god="go mod download"
+alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
 
 # enviroment vars
 export GPG_TTY=$(tty)
@@ -141,6 +144,7 @@ export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
 export PATH="$PATH:/usr/local/bin/go"
 export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOPATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles

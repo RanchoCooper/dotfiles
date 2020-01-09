@@ -51,5 +51,11 @@
 	insteadOf = https://git.llsapp.com
 [branch]
 	sort = -committerdate
+
+	autosetuprebase = always
+	autosetupmerge = true
 [pull]
 	rebase = true
+[branch "master"]
+	merge = refs/heads/master
+	remote = origin
