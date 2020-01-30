@@ -70,7 +70,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python wakatime brew history autojump pyenv pipenv sublime zsh-autosuggestions mvn vi-mode) 
+plugins=(git python wakatime brew history autojump pyenv pipenv sublime zsh-autosuggestions mvn vi-mode golang gvm) 
 #zsh-autosuggestions common-aliases)
 
 ## Backups
@@ -133,19 +133,11 @@ alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | he
 
 # enviroment vars
 export GPG_TTY=$(tty)
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 export BETTER_EXCEPTIONS=1
-export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 export HOMEBREW_GITHUB_API_TOKEN="b62a7ad6169ef5814bf3e93b987926779e492aa9"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home"
 export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
-export PATH="$PATH:/usr/local/bin/go"
-export GOPATH="$HOME/go"
-export GOBIN="$GOPATH/bin"
-export PATH="$PATH:$GOPATH:$GOPATH/bin"
 export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 export GOOS="darwin"
@@ -153,6 +145,21 @@ export GOARCH="amd64"
 
 bindkey ',' autosuggest-accept
 
+## Java
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home"
+
+## Python
+export PYENV_VIRTUALENV_DISABLE_PROMPT=0
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+## Go
+export GVM_ROOT=/Users/rancho/.gvm
+export PATH="$PATH:$GOPATH:$GOBIN"
+export PATH="$PATH:/usr/local/bin/go"
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+. $GVM_ROOT/scripts/gvm-default
 
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
