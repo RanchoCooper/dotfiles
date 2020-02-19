@@ -20,6 +20,12 @@
       <shortcut-conflict owner="vim">
         <text>ctrl pressed R</text>
       </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>ctrl pressed T</text>
+      </shortcut-conflict>
+      <shortcut-conflict owner="vim">
+        <text>pressed F1</text>
+      </shortcut-conflict>
     </shortcut-conflicts>
     <editor />
     <notifications>

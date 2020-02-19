@@ -2,6 +2,7 @@
   <component name="GoSdkList">
     <sdk-path>
       <set>
+        <option value="$USER_HOME$/.gvm/gos/go1.12" />
         <option value="/usr/local/Cellar/go/1.13.4/libexec" />
       </set>
     </sdk-path>

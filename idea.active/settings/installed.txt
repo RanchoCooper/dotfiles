@@ -1,0 +1,17 @@
+IdeaVIM
+Lombook Plugin
+MavenRunHelper
+com.alibaba.p3c.smartfox
+com.chrisrm.idea.MaterialThemeUI
+com.intellij.plugins.watcher
+com.wakatime.intellij.plugin
+com.yoheimuta.intellij.plugin.protolint
+intellij.prettierJS
+io.protostuff.protostuff-jetbrains-plugin
+mobi.hsz.idea.gitignore
+name.kropp.intellij.makefile
+net.vektah.codeglance
+org.intellij.scala
+org.jetbrains.plugins.go
+org.jetbrains.plugins.ruby
+org.toml.lang

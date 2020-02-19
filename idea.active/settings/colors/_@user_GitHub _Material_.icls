@@ -4,7 +4,7 @@
     <property name="created">2019-11-20T20:08:58</property>
     <property name="ide">idea</property>
     <property name="ideVersion">2019.2.4.0.0</property>
-    <property name="modified">2019-11-20T23:41:17</property>
+    <property name="modified">2020-01-30T19:46:39</property>
     <property name="originalScheme">GitHub (Material)</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.4" />
@@ -602,7 +602,6 @@
     <option name="JSP_SCRIPTING_BACKGROUND">
       <value />
     </option>
-    <option name="KOTLIN_ANNOTATION" baseAttributes="ANNOTATION_NAME_ATTRIBUTES" />
     <option name="KOTLIN_CLOSURE_DEFAULT_PARAMETER">
       <value>
         <option name="FOREGROUND" value="e36209" />
