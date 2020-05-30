@@ -155,14 +155,16 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 ## Go
 export GVM_ROOT=/Users/rancho/.gvm
-export PATH="$PATH:$GOPATH:$GOBIN"
 export PATH="$PATH:/usr/local/bin/go"
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOPATH:$GOBIN"
+export GOPROXY="https://goproxy.io"
 . $GVM_ROOT/scripts/gvm-default
 
+## infratraction
+
 ## other
-export REDIS_ADDR="redis://127.0.0.1:6379"
 
 # eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"

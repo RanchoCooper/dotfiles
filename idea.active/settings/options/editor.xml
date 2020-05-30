@@ -6,7 +6,6 @@
   </component>
   <component name="EditorSettings">
     <option name="SOFT_WRAP_FILE_MASKS" value="*.md; *.txt; *.rst; *.adoc" />
-    <option name="SHOW_QUICK_DOC_ON_MOUSE_OVER_ELEMENT" value="true" />
   </component>
   <component name="TodoConfiguration">
     <pattern useCustomColors="true" pattern="\b(todo|fixme|pending)\b.*">
@@ -16,6 +15,10 @@
       <option name="EFFECT_COLOR" value="3745" />
       <option name="ERROR_STRIPE_COLOR" value="b58900" />
       <option name="EFFECT_TYPE" value="2" />
+    </pattern>
+    <pattern useCustomColors="true" pattern="\b(note|notice)\b.*">
+      <option name="FOREGROUND" value="b58900" />
+      <option name="ERROR_STRIPE_COLOR" value="b58900" />
     </pattern>
   </component>
 </application>
