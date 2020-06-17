@@ -146,7 +146,13 @@ export GOARCH="amd64"
 bindkey ',' autosuggest-accept
 
 ## Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-13.0.1.jdk/Contents/Home"
+export PATH="$PATH:$JAVA_HOME/bin"
+
+## zookeeper
+export ZOOKEEPER_HOME="/usr/local/opt/zookeeper/"
+export PATH="$PATH:$ZOOKEEPER_HOME/bin"
+
 
 ## Python
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
@@ -157,9 +163,11 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export GVM_ROOT=/Users/rancho/.gvm
 export PATH="$PATH:/usr/local/bin/go"
 export GOPATH="$HOME/go"
+export GOPATH="$GOPATH:/Users/rancho/code:/Users/rancho/repo"
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOPATH:$GOBIN"
-export GOPROXY="https://goproxy.io"
+export GO111MODULE=on
+export GOPROXY="https://goproxy.cn"
 . $GVM_ROOT/scripts/gvm-default
 
 ## infratraction

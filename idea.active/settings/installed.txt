@@ -1,9 +1,0 @@
-IdeaVIM
-Lombook Plugin
-MavenRunHelper
-com.alibaba.p3c.smartfox
-com.chrisrm.idea.MaterialThemeUI
-idea.plugin.protoeditor
-io.protostuff.protostuff-jetbrains-plugin
-leetcode-editor
-org.jetbrains.plugins.go
