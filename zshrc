@@ -162,7 +162,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 ## Go
 export GVM_ROOT=/Users/rancho/.gvm
 export PATH="$PATH:/usr/local/bin/go"
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/go:$HOME/code"
 export GOPATH="$GOPATH:/Users/rancho/code:/Users/rancho/repo"
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOPATH:$GOBIN"
