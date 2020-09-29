@@ -14,9 +14,9 @@
 0.0.0.0 https://account.jetbrains.com:443
 
 # GitHub
-140.82.114.4 github.com
+140.82.113.3 github.com
 151.101.184.133 assets-cdn.github.com
-199.232.5.194 github.global.ssl.fastly.net
+199.232.69.194 github.global.ssl.fastly.net
 
 # Added by Docker Desktop
 # To allow the same kube context to work on the host and the container:
