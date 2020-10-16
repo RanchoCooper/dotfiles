@@ -116,6 +116,8 @@ alias vrc="vim ~/.vimrc"
 alias vrcb="vim ~/.vimrc.bundles"
 alias renv=". ~/.zshrc"        # reload env
 alias clds="sudo find . -name ".DS_Store" -depth -exec rm {} \;"
+alias clidea="sudo rm -rf /Users/rancho/Library/Application Support/JetBrains/IdeaIC2020.1/IntelliJ IDEA Global Settings && sudo rm -rf /Users/rancho/Library/Preferences/IntelliJIdea2019.3 &&  sudo rm -rf /Users/rancho/Library/Logs/JetBrains/IntelliJIdea2020.2 && sudo rm -rf /Users/rancho/Library/Application\ Support/JetBrains/IntelliJIdea2020.*"
+
 alias brewup="brew update && brew upgrade"
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
