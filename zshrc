@@ -1,8 +1,7 @@
-# If you come from bash you might have to change your $PATH.
 export PATH=$PATH:/usr/local/sbin
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/rancho/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -126,7 +125,6 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 
 alias tmuxx="tmux new-session -A -s Basic"
 alias ohmyzsh="~/.oh-my-zsh"
-alias vpylib="vim ~/repo/cpython/Lib"
 alias cpignore='cp ~/dotfiles/gitignore .gitignore'
 alias cpgo-precommit="cp ~/dotfiles/pre-commit.go"
 alias cppy-precommit="cp ~/dotfiles/pre-commit.py"
@@ -162,10 +160,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 ## Go
-export GVM_ROOT=/Users/rancho/.gvm
+export GVM_ROOT=~/.gvm
 export PATH="$PATH:/usr/local/bin/go"
 export GOPATH="$HOME/go:$HOME/code"
-export GOPATH="$GOPATH:/Users/rancho/code:/Users/rancho/repo"
+export GOPATH="$GOPATH:~/code:"
 export GOBIN="$GOPATH/bin"
 export PATH="$PATH:$GOPATH:$GOBIN"
 export GO111MODULE=on
@@ -176,8 +174,11 @@ export GOPROXY="https://goproxy.cn"
 
 ## other
 
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 #### personal config ended ####
 
@@ -188,7 +189,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "`pip completion --zsh`"
+eval "`pip3 completion --zsh`"
 
-# Laix setting import
-source ~/.lls.zshrc
+# remove user name and computer name
+prompt_context() {}
+# company settings
+# source ~/.lls.zshrc
