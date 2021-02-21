@@ -1,37 +1,29 @@
-export PATH=$PATH:/usr/local/sbin
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
-# ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_TMUX_AUTOSTART='true'
-
-# POWERLEVEL9K_MODE='awesome-patched'
-# POWERLEVEL9k_MODE='awesome-fontconfig'
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_DIR_SHOW_WRITABLE=true
-# export POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(pyenv dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs command_execution_time time)
-POWERLEVEL9K_VCS_HG_HOOKS=()  # disable hg hook
-POWERLEVEL9K_VCS_SVN_HOOKS=()  # disable svn hook
 DEFAULT_USER='Rancho'
-# POWERLEVEL9K_OS_ICON_BACKGROUND="white"
-# POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
-# POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
-# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
-# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -72,14 +64,9 @@ HIST_STAMPS="yyyy-mm-dd"
 plugins=(git python wakatime brew history autojump pyenv pipenv sublime zsh-autosuggestions mvn vi-mode golang gvm) 
 #zsh-autosuggestions common-aliases)
 
-## Backups
-# vi-mode
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -106,8 +93,7 @@ export TERM=xterm-256color
 
 
 
-#### personal configs ####
-
+# personal configs ####
 alias l.='ls -lh .*'
 alias cl="printf '\33c\e[3J'"
 alias zrc="vim ~/.zshrc"
@@ -131,69 +117,61 @@ alias cppy-precommit="cp ~/dotfiles/pre-commit.py"
 alias god="go mod download"
 alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
 
+
 # enviroment vars
-export GPG_TTY=$(tty)
-export BETTER_EXCEPTIONS=1
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-export HOMEBREW_GITHUB_API_TOKEN="b62a7ad6169ef5814bf3e93b987926779e492aa9"
-export BAT_THEME="Monokai Extended"
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
-export PATH="$PATH:/usr/local/opt/mysql@5.7/bin"
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-export GOOS="darwin"
-export GOARCH="amd64"
-
-bindkey ',' autosuggest-accept
-
 ## Java
 export JAVA_HOME="~/.jdks/openjdk-15.0.2"
 export PATH="$PATH:$JAVA_HOME/bin"
-
 ## zookeeper
 export ZOOKEEPER_HOME="/usr/share/zookeeper/"
 export PATH="$PATH:$ZOOKEEPER_HOME/bin"
-
 # kafka
 export KAFKA_HOME="/usr/local/kafka_2.13-2.7.0"
-
-## Python
+## pyenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 ## Go
 export GVM_ROOT=~/.gvm
 export PATH="$PATH:/usr/local/bin/go"
 export GOPATH="$HOME/go:$HOME/code"
 export GOPATH="$GOPATH:~/code:"
 export GOBIN="$GOPATH/bin"
+export GOOS="darwin"
+export GOARCH="amd64"
 export PATH="$PATH:$GOPATH:$GOBIN"
 export GO111MODULE=on
 export GOPROXY="https://goproxy.cn"
 . $GVM_ROOT/scripts/gvm-default
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+## other env vars
+export GPG_TTY=$(tty)
+export BETTER_EXCEPTIONS=1
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export HOMEBREW_GITHUB_API_TOKEN="b62a7ad6169ef5814bf3e93b987926779e492aa9"
+export BAT_THEME="Monokai Extended"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
-## infratraction
-
-## other
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-#### personal config ended ####
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # eval $(thefuck --alias)
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "`pip3 completion --zsh`"
 
 # remove user name and computer name
 prompt_context() {}
+
+
 # company settings
 # source ~/.lls.zshrc
+
+
+bindkey ',' autosuggest-accept
