@@ -19,6 +19,11 @@
 151.101.184.133 assets-cdn.github.com
 199.232.69.194 github.global.ssl.fastly.net
 
+# Zookeeper
+192.168.1.108 zookeeper1
+192.168.1.109 zookeeper2
+192.168.1.110 zookeeper3
+
 # Added by Docker Desktop
 # To allow the same kube context to work on the host and the container:
 127.0.0.1 kubernetes.docker.internal

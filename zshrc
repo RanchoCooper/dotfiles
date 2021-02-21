@@ -146,13 +146,15 @@ export GOARCH="amd64"
 bindkey ',' autosuggest-accept
 
 ## Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/openjdk-13.0.1.jdk/Contents/Home"
+export JAVA_HOME="~/.jdks/openjdk-15.0.2"
 export PATH="$PATH:$JAVA_HOME/bin"
 
 ## zookeeper
-export ZOOKEEPER_HOME="/usr/local/opt/zookeeper/"
+export ZOOKEEPER_HOME="/usr/share/zookeeper/"
 export PATH="$PATH:$ZOOKEEPER_HOME/bin"
 
+# kafka
+export KAFKA_HOME="/usr/local/kafka_2.13-2.7.0"
 
 ## Python
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
