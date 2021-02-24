@@ -96,12 +96,8 @@ export TERM=xterm-256color
 # personal configs ####
 alias l.='ls -lh .*'
 alias cl="printf '\33c\e[3J'"
-alias zrc="vim ~/.zshrc"
-alias vrc="vim ~/.vimrc"
-alias vrcb="vim ~/.vimrc.bundles"
-alias renv=". ~/.zshrc"        # reload env
+alias renv=". ~/.zshrc"
 alias clds="sudo find . -name ".DS_Store" -depth -exec rm {} \;"
-alias clidea="sudo rm -rf /Users/rancho/Library/Application Support/JetBrains/IdeaIC2020.1/IntelliJ IDEA Global Settings && sudo rm -rf /Users/rancho/Library/Preferences/IntelliJIdea2019.3 &&  sudo rm -rf /Users/rancho/Library/Logs/JetBrains/IntelliJIdea2020.2 && sudo rm -rf /Users/rancho/Library/Application\ Support/JetBrains/IntelliJIdea2020.*"
 
 alias brewup="brew update && brew upgrade"
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
@@ -114,6 +110,7 @@ alias ohmyzsh="~/.oh-my-zsh"
 alias cpignore='cp ~/dotfiles/gitignore .gitignore'
 alias cpgo-precommit="cp ~/dotfiles/pre-commit.go"
 alias cppy-precommit="cp ~/dotfiles/pre-commit.py"
+
 alias god="go mod download"
 alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
 
