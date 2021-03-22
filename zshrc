@@ -100,6 +100,7 @@ alias renv=". ~/.zshrc"
 alias clds="sudo find . -name ".DS_Store" -depth -exec rm {} \;"
 
 alias brewup="brew update && brew upgrade"
+alias aptup="sudo apt update && sudo apt upgrade"
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
 --disturl=https://npm.taobao.org/dist \
@@ -133,12 +134,11 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 ## Go
 export GVM_ROOT=~/.gvm
-export PATH="$PATH:/usr/local/bin/go"
 export GOPATH="$HOME/go:$HOME/code"
-export GOPATH="$GOPATH:~/code:"
-export GOBIN="$GOPATH/bin"
+export GOBIN="$HOME/go/bin"
 export GOOS="darwin"
 export GOARCH="amd64"
+export PATH="$PATH:/usr/local/bin/go"
 export PATH="$PATH:$GOPATH:$GOBIN"
 export GO111MODULE=on
 export GOPROXY="https://goproxy.cn"
