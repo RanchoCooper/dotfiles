@@ -1,0 +1,1 @@
+-javaagent:/home/rancho/.BetterIntelliJ/BetterIntelliJ-1.16.jar
