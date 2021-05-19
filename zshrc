@@ -141,7 +141,7 @@ export GOARCH="amd64"
 export PATH="$PATH:/usr/local/bin/go"
 export PATH="$PATH:$GOPATH:$GOBIN"
 export GO111MODULE=on
-export GOPROXY="https://goproxy.cn"
+# export GOPROXY="https://goproxy.cn"
 . $GVM_ROOT/scripts/gvm-default
 # nvm
 export NVM_DIR="$HOME/.nvm"
