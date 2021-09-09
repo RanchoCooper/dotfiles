@@ -93,7 +93,9 @@ export TERM=xterm-256color
 
 
 
-# personal configs ####
+# personal configs
+bindkey ',' autosuggest-accept
+
 alias l.='ls -lh .*'
 alias cl="printf '\33c\e[3J'"
 alias renv=". ~/.zshrc"
@@ -168,7 +170,7 @@ prompt_context() {}
 
 
 # company settings
-# source ~/.lls.zshrc
+## source ~/.company.zshrc
 
-
-bindkey ',' autosuggest-accept
+# others
+source < (kubectl completion bash)
