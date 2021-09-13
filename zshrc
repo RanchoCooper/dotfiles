@@ -173,4 +173,3 @@ prompt_context() {}
 ## source ~/.company.zshrc
 
 # others
-source < (kubectl completion bash)
