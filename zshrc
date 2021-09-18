@@ -118,9 +118,13 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 
 alias tmuxx="tmux new-session -A -s Basic"
 alias ohmyzsh="~/.oh-my-zsh"
+
 alias cpignore='cp ~/dotfiles/gitignore .gitignore'
-alias cpgo-precommit="cp ~/dotfiles/pre-commit.go"
-alias cppy-precommit="cp ~/dotfiles/pre-commit.py"
+alias cpeditorconfig='cp ~/dotfiles/editorconfig .editorconfig'
+alias cpconfig="cpignore && cpeditorconfig"
+
+alias cpgo-precommit="cp ~/dotfiles/pre-commit.go .git/pre-comit.go"
+alias cppy-precommit="cp ~/dotfiles/pre-commit.py .git/pre-commit.py"
 
 alias god="go mod download"
 alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
@@ -137,10 +141,8 @@ export KAFKA_HOME="/usr/local/kafka_2.13-2.7.0"
 ## pyenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+eval "$(pyenv init -)"
+
 ## Go
 export GVM_ROOT=~/.gvm
 export GOPATH="$HOME/go:$HOME/code"
@@ -197,3 +199,26 @@ export POWERLEVEL9K_INSTALLATION_DIR="~/powerlevel9k"
 
 # To customize prompt, run `p10k configure` or edit ~/code/dotfiles/p10k.zsh.
 [[ ! -f ~/code/dotfiles/p10k.zsh ]] || source ~/code/dotfiles/p10k.zsh
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+### End of Zinit's installer chunk
