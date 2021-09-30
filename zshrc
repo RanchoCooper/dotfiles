@@ -166,6 +166,7 @@ export HOMEBREW_GITHUB_API_TOKEN="b62a7ad6169ef5814bf3e93b987926779e492aa9"
 export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export PATH="$PATH:/Users/user/istio-1.11.2/bin"
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -222,3 +223,15 @@ zinit light-mode for \
     zinit-zsh/z-a-bin-gem-node
 
 ### End of Zinit's installer chunk
+export GETMESH_HOME="$HOME/.getmesh"
+export PATH="$GETMESH_HOME/bin:$PATH"
+
+export PATH="$PATH:/Users/user/istio-1.11.3/bin"
+complete -F __start_kubectl k
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
