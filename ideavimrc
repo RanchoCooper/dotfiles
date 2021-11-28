@@ -1,0 +1,17 @@
+" kj 替换 Esc
+inoremap kj <Esc>
+
+" Go to home and end using capitalized directions
+noremap H ^
+noremap L $
+
+" 相对行号
+set relativenumber number
+au FocusLost * :set norelativenumber number
+au FocusGained* :set relativenumber
+
+" 窗口移动
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l

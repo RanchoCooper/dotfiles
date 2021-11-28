@@ -109,7 +109,7 @@ alias cl="printf '\33c\e[3J'"
 alias renv=". ~/.zshrc"
 alias clds="sudo find . -name ".DS_Store" -depth -exec rm {} \;"
 
-alias brewup="brew update && brew upgrade"
+alias bup="brew update && brew upgrade"
 alias aptup="sudo apt update && sudo apt upgrade"
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
@@ -129,6 +129,7 @@ alias cppy-precommit="cp ~/dotfiles/pre-commit.py .git/pre-commit.py"
 alias god="go mod download"
 alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
 
+alias ipython="ipython3"
 
 # enviroment vars
 ## Java
@@ -143,6 +144,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init -)"
 
+export USER_HOME="/Users/user"
 ## Go
 export GVM_ROOT=~/.gvm
 export GOPATH="$HOME/go:$HOME/code"
@@ -235,3 +237,7 @@ complete -F __start_kubectl k
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
