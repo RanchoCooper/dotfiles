@@ -108,6 +108,8 @@ alias l.='ls -lh .*'
 alias cl="printf '\33c\e[3J'"
 alias renv=". ~/.zshrc"
 alias clds="sudo find . -name ".DS_Store" -depth -exec rm {} \;"
+alias gp="git push origin master"
+alias gpt="git push origin --tags"
 
 alias bup="brew update && brew upgrade"
 alias aptup="sudo apt update && sudo apt upgrade"
@@ -241,3 +243,5 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+
+export PATH=/Users/user/.tiup/bin:$PATH
