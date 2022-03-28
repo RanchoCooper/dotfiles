@@ -130,8 +130,8 @@ alias cppy-precommit="cp ~/dotfiles/pre-commit.py .git/pre-commit.py"
 
 alias god="go mod download"
 alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
-
 alias ipython="ipython3"
+alias remove-idea="rm -rf /Users/user/Library/Application\ Support/JetBrains/IntelliJIdea2021.3 /Users/user/Library/Caches/JetBrains"
 
 # enviroment vars
 ## Java
@@ -166,7 +166,7 @@ export NVM_DIR="$HOME/.nvm"
 export GPG_TTY=$(tty)
 export BETTER_EXCEPTIONS=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-export HOMEBREW_GITHUB_API_TOKEN="b62a7ad6169ef5814bf3e93b987926779e492aa9"
+export HOMEBREW_GITHUB_API_TOKEN="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"
 export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
