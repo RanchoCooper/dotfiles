@@ -6,7 +6,7 @@ noremap H ^
 noremap L $
 
 " 相对行号
-set relativenumber number
+" set relativenumber number
 au FocusLost * :set norelativenumber number
 au FocusGained* :set relativenumber
 
