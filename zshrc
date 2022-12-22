@@ -1,13 +1,17 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export USER_HOME="/Users/user"
+export PYENV_ROOT="$HOME/.pyenv"
 export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/local/opt/openjdk/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -100,20 +104,20 @@ export TERM=xterm-256color
 # For a full list of active aliases, run `alias`.
 
 
-
 ####
 #### personal configs
 ####
 bindkey ',' autosuggest-accept
-export USER_HOME="/Users/user"
-# PATH
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="/usr/local/sbin:$PATH"
-# short cuts
 alias l.='ls -lh .*'
 alias cl="printf '\33c\e[3J'"
 alias renv=". ~/.zshrc"
 alias clds="sudo find . -name ".DS_Store" -depth -exec rm {} \;"
+
+function gn(){
+    local brName=$(git branch --show-current)
+    command git fetch upstream master:master && command git co master && command git br -D $brName && command git co -b $brName
+}
+
 alias gp="git push origin master"
 alias gpt="git push origin --tags"
 alias bup="brew update && brew upgrade"
@@ -134,45 +138,39 @@ alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | he
 alias ipython="ipython3"
 alias remove-idea="rm -rf /Users/user/Library/Application\ Support/JetBrains/IntelliJIdea2021.3 /Users/user/Library/Caches/JetBrains"
 
-
-
 ####
 #### tech tools config
 ####
 # Go
 export GVM_ROOT=~/.gvm
-export GOPATH="$HOME/go:$HOME/code"
-export GOBIN="$HOME/go/bin"
 export GOOS="darwin"
 export GOARCH="amd64"
-export PATH="$PATH:/usr/local/bin"
-export PATH="$PATH:/usr/local/bin/go"
-export PATH="$PATH:$GOPATH:$GOBIN"
 export GO111MODULE=on
+export PATH=$PATH:/usr/local/go/bin:/usr/local/bin/go
+export GOBIN=$HOME/go/bin
+export GOPATH=$HOME/go:$HOME/code
+export PATH=$PATH:$GOPATH:$GOBIN
 # export GOPROXY="https://goproxy.cn"
 . $GVM_ROOT/scripts/gvm-default
 # python
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+export PATH=$PYENV_ROOT/bin:$PATH
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
-export PYENV_ROOT="$HOME/.pyenv"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
-# Java
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
 # zookeeper
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
 export ZOOKEEPER_HOME="/usr/share/zookeeper/"
-export PATH="$PATH:$ZOOKEEPER_HOME/bin"
 # kafka
 export KAFKA_HOME="/usr/local/kafka_2.13-2.7.0"
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# kubectl
+# k8s related
 alias k="kubectl"
-# krew
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH=$PATH:${KREW_ROOT:-$HOME/.krew}/bin
+export PATH=$PATH:$GETMESH_HOME/bin
 # others
 export GPG_TTY=$(tty)
 export BETTER_EXCEPTIONS=1
@@ -183,10 +181,12 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # eval $(thefuck --alias)
-eval "`pip3 completion --zsh`"
+# eval "`pip3 completion --zsh`"
+
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 complete -F __start_kubectl k
+
 # p10k.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 export POWERLEVEL9K_INSTALLATION_DIR="~/powerlevel9k"
@@ -197,23 +197,31 @@ export POWERLEVEL9K_INSTALLATION_DIR="~/powerlevel9k"
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+ source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+####
+#### zinit plugins
+####
 # zinit
 ## Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+# if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+#     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+#     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+#     command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+#         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+#         print -P "%F{160}▓▒░ The clone has failed.%f%b"
+# fi
+# source "$HOME/.zinit/bin/zinit.zsh"
+# autoload -Uz _zinit
+# (( ${+_comps} )) && _comps[zinit]=_zinit
+# # zinit plugins
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit end
+
+
 export GETMESH_HOME="$HOME/.getmesh"
-export PATH="$GETMESH_HOME/bin:$PATH"
 complete -F __start_kubectl k
 
 # Nap
