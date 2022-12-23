@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -73,7 +73,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python wakatime brew history autojump pyenv pipenv sublime zsh-autosuggestions mvn vi-mode golang zsh-syntax-highlighting)
+# plugins=(git python wakatime brew history autojump pyenv pipenv sublime zsh-autosuggestions mvn vi-mode golang zsh-syntax-highlighting)
 #zsh-autosuggestions common-aliases)
 
 source $ZSH/oh-my-zsh.sh
@@ -103,11 +103,9 @@ export TERM=xterm-256color
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-
 ####
 #### personal configs
 ####
-bindkey ',' autosuggest-accept
 alias l.='ls -lh .*'
 alias cl="printf '\33c\e[3J'"
 alias renv=". ~/.zshrc"
@@ -187,6 +185,86 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 complete -F __start_kubectl k
 
+export GETMESH_HOME="$HOME/.getmesh"
+complete -F __start_kubectl k
+
+# Nap
+export NAP_HOME="$HOME/code/snippets"
+export NAP_THEME="material"
+
+
+
+####
+#### zinit plugins
+####
+export ZI_HOME="$HOME/.local/share/zinit"
+# Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+zinit light-mode wait lucid depth=1 for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+ blockf \
+    zsh-users/zsh-completions
+
+# oh-my-zsh libs
+zi light-mode lucid for \
+    OMZ::lib/git.zsh \
+    OMZ::lib/grep.zsh \
+    OMZ::lib/history.zsh \
+    OMZ::lib/functions.zsh \
+    OMZ::lib/completion.zsh \
+    OMZ::lib/directories.zsh \
+    OMZ::lib/key-bindings.zsh \
+    OMZ::lib/theme-and-appearance.zsh
+
+# oh-my-zsh plugins
+zi light-mode wait lucid for \
+    OMZ::plugins/git/git.plugin.zsh \
+    OMZ::plugins/pip/pip.plugin.zsh \
+    OMZ::plugins/python/python.plugin.zsh \
+    OMZ::plugins/history/history.plugin.zsh \
+    OMZ::plugins/autojump/autojump.plugin.zsh \
+    OMZ::plugins/gitignore/gitignore.plugin.zsh \
+    OMZ::plugins/common-aliases/common-aliases.plugin.zsh
+
+zi light-mode wait lucid for \
+    https://github.com/wbingli/zsh-wakatime/blob/master/zsh-wakatime.plugin.zsh
+
+zinit ice wait lucid depth=1
+zinit light MichaelAquilina/zsh-you-should-use
+
+zinit ice lucid depth=1
+zinit light romkatv/powerlevel10k
+
+zinit light-mode wait lucid for \
+    zdharma-continuum/fast-syntax-highlighting \
+    zdharma-continuum/zsh-diff-so-fancy \
+    zdharma-continuum/zinit-package-pyenv \
+    OMZ::plugins/autojump/autojump.plugin.zsh \
+    OMZ::plugins/history/history.plugin.zsh \
+### End of Zinit's installer chunk
+
 # p10k.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 export POWERLEVEL9K_INSTALLATION_DIR="~/powerlevel9k"
@@ -200,34 +278,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
-####
-#### zinit plugins
-####
-# zinit
-## Added by Zinit's installer
-# if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-#     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-#     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-#     command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
-#         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-#         print -P "%F{160}▓▒░ The clone has failed.%f%b"
-# fi
-# source "$HOME/.zinit/bin/zinit.zsh"
-# autoload -Uz _zinit
-# (( ${+_comps} )) && _comps[zinit]=_zinit
-# # zinit plugins
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
-# zinit end
-
-
-export GETMESH_HOME="$HOME/.getmesh"
-complete -F __start_kubectl k
-
-# Nap
-export NAP_HOME="$HOME/code/snippets"
-export NAP_THEME="material"
-
 ####
 #### command line improve
 ####
@@ -238,4 +288,3 @@ prompt_context() {} # remove user name and computer name
 #### company settings
 ####
 source ~/.binance.zshrc
-
