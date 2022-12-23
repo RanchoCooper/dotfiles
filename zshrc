@@ -221,6 +221,8 @@ zi light-mode wait lucid for \
     OMZ::plugins/history/history.plugin.zsh \
     OMZ::plugins/autojump/autojump.plugin.zsh \
     OMZ::plugins/gitignore/gitignore.plugin.zsh \
+    OMZ::plugins/sudo/sudo.plugin.zsh \
+    OMZ::plugins/sublime/sublime.plugin.zsh \
     OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 
 zi light-mode wait lucid for \
@@ -242,7 +244,6 @@ zinit light-mode wait lucid for \
 
 # p10k.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-export POWERLEVEL9K_INSTALLATION_DIR="~/powerlevel9k"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # To customize prompt, run `p10k configure` or edit ~/code/dotfiles/p10k.zsh.
 [[ ! -f ~/code/dotfiles/p10k.zsh ]] || source ~/code/dotfiles/p10k.zsh
