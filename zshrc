@@ -1,3 +1,8 @@
+startTime_s=`date +%s`
+
+####
+#### p10k prompt configs
+####
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,44 +10,22 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export USER_HOME="/Users/user"
-export PYENV_ROOT="$HOME/.pyenv"
+####
+#### basic configs
+####
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/sbin
 export PATH=$PATH:/usr/local/opt/openjdk/bin
-
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="robbyrussell"
-# ZSH_THEME="agnoster"
+export UPDATE_ZSH_DAYS=7
 ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_TMUX_AUTOSTART='true'
-DEFAULT_USER='Rancho'
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
-# Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=7
+# General Env Var
+export USER_HOME="/Users/user"
+export PYENV_ROOT="$HOME/.pyenv"
+
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -103,6 +86,8 @@ export TERM=xterm-256color
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+
+
 ####
 #### personal configs
 ####
@@ -110,12 +95,6 @@ alias l.='ls -lh .*'
 alias cl="printf '\33c\e[3J'"
 alias renv=". ~/.zshrc"
 alias clds="sudo find . -name ".DS_Store" -depth -exec rm {} \;"
-
-function gn(){
-    local brName=$(git branch --show-current)
-    command git fetch upstream master:master && command git co master && command git br -D $brName && command git co -b $brName
-}
-
 alias gp="git push origin master"
 alias gpt="git push origin --tags"
 alias bup="brew update && brew upgrade"
@@ -135,6 +114,11 @@ alias god="go mod download"
 alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
 alias ipython="ipython3"
 alias remove-idea="rm -rf /Users/user/Library/Application\ Support/JetBrains/IntelliJIdea2021.3 /Users/user/Library/Caches/JetBrains"
+
+function gn(){
+    local brName=$(git branch --show-current)
+    command git fetch upstream master:master && command git co master && command git br -D $brName && command git co -b $brName
+}
 
 ####
 #### tech tools config
@@ -163,8 +147,8 @@ export ZOOKEEPER_HOME="/usr/share/zookeeper/"
 export KAFKA_HOME="/usr/local/kafka_2.13-2.7.0"
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # k8s related
 alias k="kubectl"
 export PATH=$PATH:${KREW_ROOT:-$HOME/.krew}/bin
@@ -177,17 +161,8 @@ export HOMEBREW_GITHUB_API_TOKEN="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"
 export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# eval $(thefuck --alias)
-# eval "`pip3 completion --zsh`"
-
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-complete -F __start_kubectl k
-
-export GETMESH_HOME="$HOME/.getmesh"
-complete -F __start_kubectl k
-
 # Nap
 export NAP_HOME="$HOME/code/snippets"
 export NAP_THEME="material"
@@ -271,12 +246,8 @@ export POWERLEVEL9K_INSTALLATION_DIR="~/powerlevel9k"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # To customize prompt, run `p10k configure` or edit ~/code/dotfiles/p10k.zsh.
 [[ ! -f ~/code/dotfiles/p10k.zsh ]] || source ~/code/dotfiles/p10k.zsh
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
- source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+
+
 
 ####
 #### command line improve
@@ -288,3 +259,9 @@ prompt_context() {} # remove user name and computer name
 #### company settings
 ####
 source ~/.binance.zshrc
+
+
+
+endTime_s=`date +%s`
+sumTime=$[ $endTime_s - $startTime_s ]
+echo "used time: $sumTime seconds"
