@@ -120,6 +120,8 @@ function gn(){
     command git fetch upstream master:master && command git co master && command git br -D $brName && command git co -b $brName
 }
 
+
+
 ####
 #### tech tools config
 ####
@@ -157,7 +159,7 @@ export PATH=$PATH:$GETMESH_HOME/bin
 export GPG_TTY=$(tty)
 export BETTER_EXCEPTIONS=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-export HOMEBREW_GITHUB_API_TOKEN="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"
+export HOMEBREW_GITHUB_API_TOKEN=""
 export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
@@ -260,7 +262,7 @@ prompt_context() {} # remove user name and computer name
 #### company settings
 ####
 source ~/.binance.zshrc
-
+source ~/.personal.zshrc
 
 
 endTime_s=`date +%s`
