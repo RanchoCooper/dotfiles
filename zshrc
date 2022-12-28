@@ -109,9 +109,10 @@ alias cpignore-go='cp ~/dotfiles/gitignore-go .gitignore'
 alias cpignore-java='cp ~/dotfiles/gitignore-java.gitignore'
 alias cpignore-python='cp ~/dotfiles/gitignore-python.gitignore'
 alias cpeditorconfig='cp ~/dotfiles/editorconfig .editorconfig'
-alias cpconfig="cpignore && cpeditorconfig"
-alias cpgo-precommit="cp ~/dotfiles/pre-commit.go .git/pre-comit.go"
-alias cppy-precommit="cp ~/dotfiles/pre-commit.py .git/pre-commit.py"
+alias cpconfig="cpignore-go && cpeditorconfig"
+alias cpprecommit-go="cp ~/dotfiles/pre-commit-go.yaml .git/hooks/.pre-commit-config.yaml"
+alias cpprecommit-java="cp ~/dotfiles/pre-commit-java.git/hooks/.pre-commit-config.yaml"
+alias cpprecommit-python="cp ~/dotfiles/pre-commit-python .git/hooks/.pre-commit-config.yaml"
 alias god="go mod download"
 alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
 alias ipython="ipython3"
