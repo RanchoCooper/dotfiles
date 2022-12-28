@@ -141,13 +141,13 @@ export PATH=$PATH:$GOPATH:$GOBIN
 . $GVM_ROOT/scripts/gvm-default
 # python
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH=$PYENV_ROOT/bin:$PATH
+export PATH=$PATH:$PYENV_ROOT/bin
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 # zookeeper
+export ZOOKEEPER_HOME="/usr/share/zookeeper"
 export PATH=$PATH:$ZOOKEEPER_HOME/bin
-export ZOOKEEPER_HOME="/usr/share/zookeeper/"
 # kafka
 export KAFKA_HOME="/usr/local/kafka_2.13-2.7.0"
 # nvm
@@ -222,7 +222,6 @@ zi light-mode lucid for \
 zi light-mode wait lucid for \
     OMZ::plugins/git/git.plugin.zsh \
     OMZ::plugins/pip/pip.plugin.zsh \
-    OMZ::plugins/python/python.plugin.zsh \
     OMZ::plugins/history/history.plugin.zsh \
     OMZ::plugins/autojump/autojump.plugin.zsh \
     OMZ::plugins/gitignore/gitignore.plugin.zsh \
