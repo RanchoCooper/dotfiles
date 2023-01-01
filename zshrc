@@ -270,3 +270,6 @@ source ~/.personal.zshrc
 endTime_s=`date +%s`
 sumTime=$[ $endTime_s - $startTime_s ]
 echo "used time: $sumTime seconds"
+
+# added by travis gem
+[ ! -s /Users/user/.travis/travis.sh ] || source /Users/user/.travis/travis.sh

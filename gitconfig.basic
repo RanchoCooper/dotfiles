@@ -48,7 +48,6 @@
 	  program = gpg
 [branch]
 	sort = -committerdate
-
 	autosetuprebase = always
 	autosetupmerge = true
 [pull]
@@ -56,3 +55,5 @@
 [branch "master"]
 	merge = refs/heads/master
 	remote = origin
+[push]
+    autoSetupRemote = true
