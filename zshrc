@@ -229,11 +229,9 @@ zi light-mode wait lucid for \
     OMZ::plugins/sublime/sublime.plugin.zsh \
     OMZ::plugins/common-aliases/common-aliases.plugin.zsh
 
-zi light-mode wait lucid for \
-    https://github.com/wbingli/zsh-wakatime/blob/master/zsh-wakatime.plugin.zsh
-
 zinit ice wait lucid depth=1
 zinit light MichaelAquilina/zsh-you-should-use
+zinit light sobolevn/wakatime-zsh-plugin
 
 zinit ice lucid depth=1
 zinit light romkatv/powerlevel10k
