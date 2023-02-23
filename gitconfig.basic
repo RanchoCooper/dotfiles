@@ -57,3 +57,7 @@
 	remote = origin
 [push]
     autoSetupRemote = true
+[http]
+	postBuffer = 157286400
+[remote "origin"]
+	push = HEAD

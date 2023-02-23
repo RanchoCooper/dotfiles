@@ -205,7 +205,7 @@ zinit light-mode wait lucid depth=1 for \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
  blockf \
-    zsh-users/zsh-completions
+    zsh-users/zsh-completions/
 
 # oh-my-zsh libs
 zi light-mode lucid for \
@@ -249,6 +249,7 @@ zinit light-mode wait lucid for \
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # To customize prompt, run `p10k configure` or edit ~/code/dotfiles/p10k.zsh.
 [[ ! -f ~/code/dotfiles/p10k.zsh ]] || source ~/code/dotfiles/p10k.zsh
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 
 
@@ -271,3 +272,4 @@ echo "used time: $sumTime seconds"
 
 # added by travis gem
 [ ! -s /Users/user/.travis/travis.sh ] || source /Users/user/.travis/travis.sh
+

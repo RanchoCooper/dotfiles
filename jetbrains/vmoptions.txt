@@ -1,3 +1,0 @@
--javaagent:/Users/user/dotfiles/jetbrains/FineAgent.jar
-
-vim /Users/user/Library/Application\ Support/JetBrains/IntelliJIdea2021.3/idea.vmoptions 
