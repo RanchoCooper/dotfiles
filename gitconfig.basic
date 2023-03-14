@@ -58,6 +58,7 @@
 [push]
     autoSetupRemote = true
 [http]
-	postBuffer = 157286400
+	postBuffer = 10485760000
+    version = HTTP/1.1
 [remote "origin"]
 	push = HEAD

@@ -131,7 +131,7 @@ function gn(){
 # Go
 export GVM_ROOT=~/.gvm
 export GOOS="darwin"
-export GOARCH="amd64"
+export GOARCH="arm64"
 export GO111MODULE=on
 export PATH=$PATH:/usr/local/go/bin:/usr/local/bin/go
 export GOBIN=$HOME/go/bin
@@ -161,7 +161,6 @@ export PATH=$PATH:$GETMESH_HOME/bin
 # others
 export GPG_TTY=$(tty)
 export BETTER_EXCEPTIONS=1
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 export HOMEBREW_GITHUB_API_TOKEN=""
 export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
@@ -222,6 +221,7 @@ zi light-mode lucid for \
 zi light-mode wait lucid for \
     OMZ::plugins/git/git.plugin.zsh \
     OMZ::plugins/pip/pip.plugin.zsh \
+    OMZ::plugins/kubectl/kubectl.plugin.zsh \
     OMZ::plugins/history/history.plugin.zsh \
     OMZ::plugins/autojump/autojump.plugin.zsh \
     OMZ::plugins/gitignore/gitignore.plugin.zsh \
@@ -273,3 +273,4 @@ echo "used time: $sumTime seconds"
 # added by travis gem
 [ ! -s /Users/user/.travis/travis.sh ] || source /Users/user/.travis/travis.sh
 
+export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
