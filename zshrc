@@ -92,17 +92,16 @@ export TERM=xterm-256color
 #### personal configs
 ####
 alias l.='ls -lh .*'
+alias k="kubectl"
 alias cl="printf '\33c\e[3J'"
-alias renv=". ~/.zshrc"
 alias clds="sudo find . -name ".DS_Store" -depth -exec rm {} \;"
-alias gp="git push origin master"
-alias gpt="git push origin --tags"
+alias renv=". ~/.zshrc"
 alias bup="brew update && brew upgrade"
-alias aptup="sudo apt update && sudo apt upgrade"
 alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
 --disturl=https://npm.taobao.org/dist \
 --userconfig=$HOME/.cnpmrc"
+
 alias tmuxx="tmux new-session -A -s Basic"
 alias ohmyzsh="~/.oh-my-zsh"
 alias cpignore-go='cp ~/dotfiles/gitignore-go .gitignore'
@@ -113,22 +112,16 @@ alias cpconfig="cpignore-go && cpeditorconfig"
 alias cpprecommit-go="cp ~/dotfiles/pre-commit-go.yaml .git/hooks/.pre-commit-config.yaml"
 alias cpprecommit-java="cp ~/dotfiles/pre-commit-java.git/hooks/.pre-commit-config.yaml"
 alias cpprecommit-python="cp ~/dotfiles/pre-commit-python .git/hooks/.pre-commit-config.yaml"
-alias god="go mod download"
+
 alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
 alias ipython="ipython3"
-alias remove-idea="rm -rf /Users/user/Library/Application\ Support/JetBrains/IntelliJIdea2021.3 /Users/user/Library/Caches/JetBrains"
+alias python="python3"
 
 function gn(){
     local brName=$(git branch --show-current)
     command git fetch upstream master:master && command git co master && command git br -D $brName && command git co -b $brName
 }
 
-
-
-####
-#### tech tools config
-####
-# Go
 export GVM_ROOT=~/.gvm
 export GOOS="darwin"
 export GOARCH="arm64"
@@ -138,7 +131,7 @@ export GOBIN=$HOME/go/bin
 export GOPATH=$HOME/go:$HOME/code
 export PATH=$PATH:$GOPATH:$GOBIN
 # export GOPROXY="https://goproxy.cn"
-. $GVM_ROOT/scripts/gvm-default
+#. $GVM_ROOT/scripts/gvm-default
 # python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=$PATH:$PYENV_ROOT/bin
@@ -155,7 +148,6 @@ export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # k8s related
-alias k="kubectl"
 export PATH=$PATH:${KREW_ROOT:-$HOME/.krew}/bin
 export PATH=$PATH:$GETMESH_HOME/bin
 # others
@@ -223,7 +215,6 @@ zi light-mode wait lucid for \
     OMZ::plugins/pip/pip.plugin.zsh \
     OMZ::plugins/kubectl/kubectl.plugin.zsh \
     OMZ::plugins/history/history.plugin.zsh \
-    OMZ::plugins/autojump/autojump.plugin.zsh \
     OMZ::plugins/gitignore/gitignore.plugin.zsh \
     OMZ::plugins/sudo/sudo.plugin.zsh \
     OMZ::plugins/sublime/sublime.plugin.zsh \
@@ -240,9 +231,10 @@ zinit light-mode wait lucid for \
     zdharma-continuum/fast-syntax-highlighting \
     zdharma-continuum/zsh-diff-so-fancy \
     zdharma-continuum/zinit-package-pyenv \
-    OMZ::plugins/autojump/autojump.plugin.zsh \
     OMZ::plugins/history/history.plugin.zsh \
 ### End of Zinit's installer chunk
+#
+bindkey ',' autosuggest-accept
 
 # p10k.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -251,26 +243,22 @@ zinit light-mode wait lucid for \
 [[ ! -f ~/code/dotfiles/p10k.zsh ]] || source ~/code/dotfiles/p10k.zsh
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
-
-
-####
-#### command line improve
-####
 prompt_context() {} # remove user name and computer name
 
 
 ####
 #### company settings
 ####
-source ~/.binance.zshrc
 source ~/.personal.zshrc
-
-
-endTime_s=`date +%s`
-sumTime=$[ $endTime_s - $startTime_s ]
-echo "used time: $sumTime seconds"
 
 # added by travis gem
 [ ! -s /Users/user/.travis/travis.sh ] || source /Users/user/.travis/travis.sh
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
-export PATH="/opt/homebrew/opt/node@14/bin:$PATH"
+
+###
+#### ending
+###
+endTime_s=`date +%s`
+sumTime=$[ $endTime_s - $startTime_s ]
+echo "used time: $sumTime seconds"
