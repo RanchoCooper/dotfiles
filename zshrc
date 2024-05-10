@@ -156,7 +156,7 @@ export BETTER_EXCEPTIONS=1
 export HOMEBREW_GITHUB_API_TOKEN=""
 export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 # Nap
@@ -234,7 +234,6 @@ zinit light-mode wait lucid for \
     OMZ::plugins/history/history.plugin.zsh \
 ### End of Zinit's installer chunk
 #
-bindkey ',' autosuggest-accept
 
 # p10k.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -247,7 +246,7 @@ prompt_context() {} # remove user name and computer name
 
 
 ####
-#### company settings
+#### personal settings
 ####
 source ~/.personal.zshrc
 
@@ -256,9 +255,26 @@ source ~/.personal.zshrc
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 
+bindkey ',' autosuggest-accept
+
+# network
+alias proxy5='export ALL_PROXY=socks5://127.0.0.1:1081'
+alias unproxy5='unset ALL_PROXY'
+alias proxyhp='export http_proxy=http://127.0.0.1:8001;export https_proxy=http://127.0.0.1:8001;'
+alias unproxyhp='unset http_proxy https_proxy'
+
+export HOMEBREW_NO_INSTALL_FROM_API=1
+
+
+###
+### enterprice settings
+###
+alias qwg=sudo wg-quick up wg0
+
 ###
 #### ending
 ###
 endTime_s=`date +%s`
 sumTime=$[ $endTime_s - $startTime_s ]
 echo "used time: $sumTime seconds"
+
