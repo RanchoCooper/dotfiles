@@ -136,8 +136,10 @@ export PATH=$PATH:$GOPATH:$GOBIN
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=$PATH:$PYENV_ROOT/bin
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+# eval "$(pyenv init --path)"
+# eval "$(pyenv init -)"
+
+
 # zookeeper
 export ZOOKEEPER_HOME="/usr/share/zookeeper"
 export PATH=$PATH:$ZOOKEEPER_HOME/bin
@@ -263,8 +265,10 @@ alias unproxy5='unset ALL_PROXY'
 alias proxyhp='export http_proxy=http://127.0.0.1:8001;export https_proxy=http://127.0.0.1:8001;'
 alias unproxyhp='unset http_proxy https_proxy'
 
-export HOMEBREW_NO_INSTALL_FROM_API=1
-
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/bottles"
 
 ###
 ### enterprice settings
