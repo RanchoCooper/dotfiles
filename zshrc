@@ -130,7 +130,7 @@ export PATH=$PATH:/usr/local/go/bin:/usr/local/bin/go
 export GOBIN=$HOME/go/bin
 export GOPATH=$HOME/go:$HOME/code
 export PATH=$PATH:$GOPATH:$GOBIN
-# export GOPROXY="https://goproxy.cn"
+export GOPROXY="https://goproxy.cn"
 #. $GVM_ROOT/scripts/gvm-default
 # python
 export PYENV_ROOT="$HOME/.pyenv"
@@ -139,12 +139,6 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 # eval "$(pyenv init --path)"
 # eval "$(pyenv init -)"
 
-
-# zookeeper
-export ZOOKEEPER_HOME="/usr/share/zookeeper"
-export PATH=$PATH:$ZOOKEEPER_HOME/bin
-# kafka
-export KAFKA_HOME="/usr/local/kafka_2.13-2.7.0"
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -257,7 +251,7 @@ source ~/.personal.zshrc
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 
-bindkey ',' autosuggest-accept
+# bindkey ',' autosuggest-accept
 
 # network
 alias proxy5='export ALL_PROXY=socks5://127.0.0.1:1081'
