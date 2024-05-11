@@ -101,7 +101,6 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 --cache=$HOME/.npm/.cache/cnpm \
 --disturl=https://npm.taobao.org/dist \
 --userconfig=$HOME/.cnpmrc"
-
 alias tmuxx="tmux new-session -A -s Basic"
 alias ohmyzsh="~/.oh-my-zsh"
 alias cpignore-go='cp ~/dotfiles/gitignore-go .gitignore'
@@ -112,16 +111,9 @@ alias cpconfig="cpignore-go && cpeditorconfig"
 alias cpprecommit-go="cp ~/dotfiles/pre-commit-go.yaml .git/hooks/.pre-commit-config.yaml"
 alias cpprecommit-java="cp ~/dotfiles/pre-commit-java.git/hooks/.pre-commit-config.yaml"
 alias cpprecommit-python="cp ~/dotfiles/pre-commit-python .git/hooks/.pre-commit-config.yaml"
-
 alias topcommiter="git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 10"
 alias ipython="ipython3"
 alias python="python3"
-
-function gn(){
-    local brName=$(git branch --show-current)
-    command git fetch upstream master:master && command git co master && command git br -D $brName && command git co -b $brName
-}
-
 export GVM_ROOT=~/.gvm
 export GOOS="darwin"
 export GOARCH="arm64"
@@ -138,7 +130,6 @@ export PATH=$PATH:$PYENV_ROOT/bin
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 # eval "$(pyenv init --path)"
 # eval "$(pyenv init -)"
-
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -146,6 +137,19 @@ export NVM_DIR="$HOME/.nvm"
 # k8s related
 export PATH=$PATH:${KREW_ROOT:-$HOME/.krew}/bin
 export PATH=$PATH:$GETMESH_HOME/bin
+# Nap
+export NAP_HOME="$HOME/code/snippets"
+export NAP_THEME="material"
+# brew
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/bottles"
+# bash network
+alias proxy5='export ALL_PROXY=socks5://127.0.0.1:1081'
+alias unproxy5='unset ALL_PROXY'
+alias proxyhp='export http_proxy=http://127.0.0.1:8001;export https_proxy=http://127.0.0.1:8001;'
+alias unproxyhp='unset http_proxy https_proxy'
 # others
 export GPG_TTY=$(tty)
 export BETTER_EXCEPTIONS=1
@@ -155,9 +159,18 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-# Nap
-export NAP_HOME="$HOME/code/snippets"
-export NAP_THEME="material"
+
+function gn(){
+    local brName=$(git branch --show-current)
+    command git fetch upstream master:master && command git co master && command git br -D $brName && command git co -b $brName
+}
+
+# added by travis gem
+[ ! -s /Users/user/.travis/travis.sh ] || source /Users/user/.travis/travis.sh
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+
+# auto suggest-accept
+# bindkey ',' autosuggest-accept
 
 
 
@@ -241,36 +254,19 @@ POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 prompt_context() {} # remove user name and computer name
 
 
-####
-#### personal settings
-####
+###
+### personal settings
+###
 source ~/.personal.zshrc
-
-# added by travis gem
-[ ! -s /Users/user/.travis/travis.sh ] || source /Users/user/.travis/travis.sh
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-
-
-# bindkey ',' autosuggest-accept
-
-# network
-alias proxy5='export ALL_PROXY=socks5://127.0.0.1:1081'
-alias unproxy5='unset ALL_PROXY'
-alias proxyhp='export http_proxy=http://127.0.0.1:8001;export https_proxy=http://127.0.0.1:8001;'
-alias unproxyhp='unset http_proxy https_proxy'
-
-export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
-export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
-export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/bottles"
 
 ###
 ### enterprice settings
 ###
-alias qwg=sudo wg-quick up wg0
+alias wgu="sudo wg-quick up wg0"
+alias wgd="sudo wg-quick down wg0"
 
 ###
-#### ending
+### ending
 ###
 endTime_s=`date +%s`
 sumTime=$[ $endTime_s - $startTime_s ]
