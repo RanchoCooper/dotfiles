@@ -141,6 +141,7 @@ export PATH=$PATH:$GETMESH_HOME/bin
 export NAP_HOME="$HOME/code/snippets"
 export NAP_THEME="material"
 # brew
+export HOMEBREW_GITHUB_API_TOKEN=""
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
 export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
@@ -153,10 +154,8 @@ alias unproxyhp='unset http_proxy https_proxy'
 # others
 export GPG_TTY=$(tty)
 export BETTER_EXCEPTIONS=1
-export HOMEBREW_GITHUB_API_TOKEN=""
 export BAT_THEME="Monokai Extended"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=1
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
@@ -170,9 +169,7 @@ function gn(){
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # auto suggest-accept
-# bindkey ',' autosuggest-accept
-
-
+bindkey ',' autosuggest-accept
 
 ####
 #### zinit plugins
