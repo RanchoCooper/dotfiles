@@ -1,7 +1,7 @@
 [user]
     name = Rancho
     email = ranchocooper@gmail.com
-    signingkey = D4863D207FBDE46E384FAB1B515138744B16AE67
+	signingkey = 7DF82E10F1C1A65A
 [core]
     autocrlf = input
     safecrlf = false
