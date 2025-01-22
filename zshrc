@@ -104,8 +104,8 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
 alias tmuxx="tmux new-session -A -s Basic"
 alias ohmyzsh="~/.oh-my-zsh"
 alias cpignore-go='cp ~/dotfiles/gitignore-go .gitignore'
-alias cpignore-java='cp ~/dotfiles/gitignore-java.gitignore'
-alias cpignore-python='cp ~/dotfiles/gitignore-python.gitignore'
+alias cpignore-java='cp ~/dotfiles/gitignore-java .gitignore'
+alias cpignore-python='cp ~/dotfiles/gitignore-python .gitignore'
 alias cpeditorconfig='cp ~/dotfiles/editorconfig .editorconfig'
 alias cpconfig="cpignore-go && cpeditorconfig"
 alias cpprecommit-go="cp ~/dotfiles/pre-commit-go.yaml .git/hooks/.pre-commit-config.yaml"
