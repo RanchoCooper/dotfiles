@@ -119,6 +119,7 @@ export GOOS="darwin"
 export GOARCH="arm64"
 export GO111MODULE=on
 export PATH=$PATH:/usr/local/go/bin:/usr/local/bin/go
+export PATH=$PATH:/opt/homebrew/bin
 export GOBIN=$HOME/go/bin
 export GOPATH=$HOME/go:$HOME/code
 export PATH=$PATH:$GOPATH:$GOBIN
@@ -130,8 +131,8 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=$PATH:$PYENV_ROOT/bin
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
-# eval "$(pyenv init --path)"
-# eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -257,12 +258,7 @@ prompt_context() {} # remove user name and computer name
 ### personal settings
 ###
 source ~/.personal.zshrc
-
-###
-### enterprice settings
-###
-alias wgu="sudo wg-quick up wg0"
-alias wgd="sudo wg-quick down wg0"
+source ~/.avenir.zshrc
 
 ###
 ### ending
