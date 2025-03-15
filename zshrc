@@ -211,10 +211,10 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 zinit light-mode wait lucid depth=1 for \
- atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
-    zdharma-continuum/fast-syntax-highlighting \
  atload"!_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
  blockf \
     zsh-users/zsh-completions/
 
@@ -263,7 +263,6 @@ zinit light-mode wait lucid for \
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 prompt_context() {} # remove user name and computer name
-
 
 ###
 ### personal settings
