@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 startTime_s=`date +%s`
 
 ####
@@ -64,7 +71,8 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
 export VISUAL="vim"
 export TERM=xterm-256color
 
@@ -120,6 +128,7 @@ export GOARCH="arm64"
 export GO111MODULE=on
 export PATH=$PATH:/usr/local/go/bin:/usr/local/bin/go
 export PATH=$PATH:/opt/homebrew/bin
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 export GOBIN=$HOME/go/bin
 export GOPATH=$HOME/go:$HOME/code
 export PATH=$PATH:$GOPATH:$GOBIN
@@ -133,6 +142,8 @@ export PATH=$PATH:$PYENV_ROOT/bin
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+export PYTHON_BUILD_MIRROR_URL="https://mirrors.tuna.tsinghua.edu.cn/python/"
+export PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -266,4 +277,3 @@ source ~/.avenir.zshrc
 endTime_s=`date +%s`
 sumTime=$[ $endTime_s - $startTime_s ]
 echo "used time: $sumTime seconds"
-
