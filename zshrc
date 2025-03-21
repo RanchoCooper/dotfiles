@@ -131,13 +131,16 @@ export GOBIN=$HOME/go/bin
 export GOPATH=$HOME/go:$HOME/code
 export PATH=$PATH:$GOPATH:$GOBIN
 export GOPROXY="https://goproxy.cn"
-#. $GVM_ROOT/scripts/gvm-default
+export PATH="$PATH:/Applications/Cursor.app/Contents/MacOS"
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
 # java
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH=$PATH:$PYENV_ROOT/bin
 export PYENV_VIRTUALENV_DISABLE_PROMPT=0
+# pyenv
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 export PYTHON_BUILD_MIRROR_URL="https://mirrors.tuna.tsinghua.edu.cn/python/"
